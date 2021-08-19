@@ -16,6 +16,8 @@ void AArcheologistGameModeBase::StartPlay()
     Super::StartPlay();
 
     SpawnField();
+
+    MainArcheologistPawn = Cast<AArcheologistPawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 }
 
 void AArcheologistGameModeBase::SpawnField()

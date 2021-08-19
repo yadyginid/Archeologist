@@ -19,4 +19,19 @@ protected:
 
 public:
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+    int32 GetCurrentCountShovels() const { return CurrentCountShovels; }
+
+    int32 GetMaxCountShovels() const { return MaxCountShovels; }
+
+    UFUNCTION(BlueprintCallable)
+    bool IsNotEmptyShovels() const { return CurrentCountShovels > 0; }
+
+private:
+    UPROPERTY(EditDefaultsOnly)
+    int32 MaxCountShovels = 20;
+
+    int32 CurrentCountShovels = 20;
+
+    bool isEmptyShovels = false;
 };

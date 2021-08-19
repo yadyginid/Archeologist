@@ -17,7 +17,7 @@ void AArcheologistField::BeginPlay()
 
 void AArcheologistField::SpawnSlots()
 {
-    if (!GetWorld()) return;
+    if (!GetWorld() || !SlotClass) return;
 
     int32 y = 0;
     int32 x = 0;
