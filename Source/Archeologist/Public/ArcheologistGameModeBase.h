@@ -6,6 +6,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "ArcheologistGameModeBase.generated.h"
 
+class AArcheologistField;
+
 UCLASS()
 class ARCHEOLOGIST_API AArcheologistGameModeBase : public AGameModeBase
 {
@@ -15,4 +17,10 @@ public:
     AArcheologistGameModeBase();
 
     virtual void StartPlay() override;
+
+private:
+    UPROPERTY(EditDefaultsOnly, Category = "ArcheologistGameMode")
+    TSubclassOf<AArcheologistField> FieldClass;
+
+    void SpawnField();
 };
