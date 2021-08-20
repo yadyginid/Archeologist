@@ -39,6 +39,9 @@ public:
 
     FOnChangeValueCountShovels OnChangeValueCountShovels;
 
+    UFUNCTION(BlueprintCallable)
+    void IncrCountGolds() { CurrentCountGolds++; }
+
 private:
     UPROPERTY(EditDefaultsOnly)
     int32 MaxCountShovels = 20;
