@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "ArcheologistSlot.generated.h"
 
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnChangeValueCountShovels, int);
+
 class AArcheologistTreasure;
 
 UCLASS()
@@ -17,9 +19,6 @@ public:
     AArcheologistSlot();
 
     bool GetBlock() const { return isBlocked; };
-
-    UPROPERTY(EditDefaultsOnly)
-    int32 Chance = 10;
 
 protected:
     virtual void BeginPlay() override;
@@ -36,4 +35,12 @@ private:
 
     UFUNCTION()
     void TryGenerateTreasure(AActor* Target, FKey ButtonPressed);
+
+    FOnChangeValueCountShovels OnChangeValueCountShovels;
+
+    UPROPERTY(EditDefaultsOnly)
+    int32 Chance = 10;
+
+    UPROPERTY(EditDefaultsOnly)
+    int32 Deep = 3;
 };

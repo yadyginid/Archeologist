@@ -10,6 +10,7 @@ AArcheologistPawn::AArcheologistPawn()
 void AArcheologistPawn::BeginPlay()
 {
     Super::BeginPlay();
+    OnChangeValueCountShovels.AddUObject(this, &AArcheologistPawn::SumToCurrentCountShovels);
 }
 
 void AArcheologistPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

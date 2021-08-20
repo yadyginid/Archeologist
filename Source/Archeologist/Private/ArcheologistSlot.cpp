@@ -35,6 +35,14 @@ void AArcheologistSlot::TryGenerateTreasure(AActor* Target, FKey ButtonPressed)
 {
     if (!TreasureClass || !CheckCanDig()) return;
 
+    const AArcheologistGameModeBase* ArcheologistGameModeBase = Cast<AArcheologistGameModeBase>(GetWorld()->GetAuthGameMode());
+    AArcheologistPawn* ArcheologistPawn = Cast<AArcheologistPawn>(ArcheologistGameModeBase->GetArcheologistPawn());
+
+    ArcheologistPawn->OnChangeValueCountShovels.Broadcast(-1);
+    Deep--;
+
+    if (1 > Deep) SetBlock(true);
+
     // generate chance
     if (FMath::RandRange(1, 100 / Chance) == 1)
     {

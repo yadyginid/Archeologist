@@ -4,11 +4,13 @@
 #include "ArcheologistPawn.h"
 #include "ArcheologistPlayerController.h"
 #include "ArcheologistField.h"
+#include "ArcheologistHUD.h"
 
 AArcheologistGameModeBase::AArcheologistGameModeBase()
 {
     DefaultPawnClass = AArcheologistPawn::StaticClass();
     PlayerControllerClass = AArcheologistPlayerController::StaticClass();
+    HUDClass = AArcheologistHUD::StaticClass();
 }
 
 void AArcheologistGameModeBase::StartPlay()
