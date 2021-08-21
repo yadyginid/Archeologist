@@ -8,6 +8,7 @@
 
 class AArcheologistField;
 class AArcheologistPawn;
+class USaveGame;
 
 UCLASS()
 class ARCHEOLOGIST_API AArcheologistGameModeBase : public AGameModeBase
@@ -24,6 +25,9 @@ public:
 private:
     UPROPERTY(EditDefaultsOnly, Category = "ArcheologistGameMode")
     TSubclassOf<AArcheologistField> FieldClass;
+
+    UPROPERTY(EditDefaultsOnly, Category = "ArcheologistGameMode")
+    TSubclassOf<USaveGame> SaveObject;
 
     void SpawnField();
 
