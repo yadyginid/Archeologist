@@ -28,3 +28,18 @@ void AArcheologistGameModeBase::SpawnField()
 
     GetWorld()->SpawnActor<AArcheologistField>(FieldClass, FTransform(FRotator::ZeroRotator, FVector::ZeroVector, FVector::ZeroVector));
 }
+
+void AArcheologistGameModeBase::CheckEndGame()
+{
+    if (MainArcheologistPawn->CurrentCountGolds >= MainArcheologistPawn->GetMaxCountGolds())
+    {
+        PawnWin = true;
+        ShowResult();
+    }
+
+    if (0 >= MainArcheologistPawn->CurrentCountShovels)
+    {
+        PawnWin = false;
+        ShowResult();
+    }
+}

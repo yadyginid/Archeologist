@@ -22,9 +22,16 @@ public:
 
     AArcheologistPawn* GetArcheologistPawn() const { return MainArcheologistPawn; }
 
+    UFUNCTION(BlueprintImplementableEvent)
+    void ShowResult();
+
+    void CheckEndGame();
+
+    UPROPERTY(BlueprintReadOnly)
+    bool PawnWin = false;
+
 private:
-    UPROPERTY(EditDefaultsOnly, Category = "ArcheologistGameMode")
-    TSubclassOf<AArcheologistField> FieldClass;
+    UPROPERTY(EditDefaultsOnly, Category = "ArcheologistGameMode") TSubclassOf<AArcheologistField> FieldClass;
 
     UPROPERTY(EditDefaultsOnly, Category = "ArcheologistGameMode")
     TSubclassOf<USaveGame> SaveObject;

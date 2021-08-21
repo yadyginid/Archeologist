@@ -36,19 +36,18 @@ public:
     int32 GetMaxCountGolds() const { return MaxCountGolds; }
 
     UFUNCTION()
-    void SumToCurrentCountGolds(int32 SumValue) { CurrentCountGolds = CurrentCountGolds + SumValue; }
+    void SumToCurrentCountGolds(int32 SumValue);
 
     UFUNCTION()
-    void SumToCurrentCountShovels(int32 SumValue) { CurrentCountShovels = CurrentCountShovels + SumValue; }
+    void SumToCurrentCountShovels(int32 SumValue);
 
     FOnChangeValueCountShovels OnChangeValueCountShovels;
 
     UFUNCTION(BlueprintCallable)
-    void IncrCountGolds() { CurrentCountGolds++; }
+    void IncrCountGolds();
 
 private:
-    UPROPERTY(EditDefaultsOnly)
-    int32 MaxCountShovels = 20;
+    UPROPERTY(EditDefaultsOnly) int32 MaxCountShovels = 20;
 
     bool isEmptyShovels = false;
 
