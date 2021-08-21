@@ -23,6 +23,12 @@ public:
 protected:
     virtual void BeginPlay() override;
 
+    UFUNCTION(BlueprintCallable)
+    void SetDeep(int32 value);
+
+    UFUNCTION(BlueprintCallable)
+    int32 GetDeep() const { return Deep; }
+
 private:
     bool CheckCanDig();
 

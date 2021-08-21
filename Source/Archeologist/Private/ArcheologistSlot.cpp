@@ -53,3 +53,16 @@ void AArcheologistSlot::TryGenerateTreasure(AActor* Target, FKey ButtonPressed)
         AArcheologistTreasure* SpawnSlotNew = GetWorld()->SpawnActor<AArcheologistTreasure>(TreasureClass, SpawnTransform);
     }
 }
+
+void AArcheologistSlot::SetDeep(int32 value)
+{
+    Deep = value;
+    if (1 > Deep)
+    {
+        SetBlock(true);
+    }
+    else
+    {
+        SetBlock(false);
+    }
+}
