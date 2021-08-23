@@ -26,6 +26,8 @@ bool AArcheologistSlot::CheckCanDig()
     const AArcheologistPawn* ArcheologistPawn = Cast<AArcheologistPawn>(ArcheologistGameModeBase->GetArcheologistPawn());
 
     if (!ArcheologistGameModeBase || !ArcheologistPawn) return false;
+
+    if (1 > Deep) SetBlock(true);
     if (GetBlock() || !ArcheologistPawn->IsNotEmptyShovels()) return false;
 
     return true;
@@ -50,7 +52,9 @@ void AArcheologistSlot::TryGenerateTreasure(AActor* Target, FKey ButtonPressed)
 
         FTransform SpawnTransform = FTransform(FRotator::ZeroRotator, SpawnLocation, FVector(1));
 
-        AArcheologistTreasure* SpawnSlotNew = GetWorld()->SpawnActor<AArcheologistTreasure>(TreasureClass, SpawnTransform);
+        Treasure = GetWorld()->SpawnActor<AArcheologistTreasure>(TreasureClass, SpawnTransform);
+        Treasure->SetArcheologistSlotRef(this);
+        SetBlock(true);
     }
 }
 

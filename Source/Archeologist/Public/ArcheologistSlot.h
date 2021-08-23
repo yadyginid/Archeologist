@@ -18,7 +18,11 @@ class ARCHEOLOGIST_API AArcheologistSlot : public AActor
 public:
     AArcheologistSlot();
 
+    UFUNCTION(BlueprintCallable)
     bool GetBlock() const { return isBlocked; };
+
+    UFUNCTION(BlueprintCallable)
+    void SetBlock(bool value) { isBlocked = value; };
 
 protected:
     virtual void BeginPlay() override;
@@ -34,8 +38,6 @@ private:
 
     bool isBlocked = false;
 
-    void SetBlock(bool value) { isBlocked = value; };
-
     UPROPERTY(EditDefaultsOnly)
     TSubclassOf<AArcheologistTreasure> TreasureClass;
 
@@ -49,4 +51,6 @@ private:
 
     UPROPERTY(EditDefaultsOnly)
     int32 Deep = 3;
+
+    AArcheologistTreasure* Treasure;
 };
